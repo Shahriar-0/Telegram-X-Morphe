@@ -1,12 +1,11 @@
 group = "app.template"
 
 patches {
-    // TODO: Update this section with your project details.
     about {
-        name = "UserXYZ Patches"
-        description = "Patches for apps I like"
-        source = "git@github.com:UserXYZ/morphe-patches.git"
-        author = "Awesome dev"
+        name = "Telegram X No Ads Patches"
+        description = "Personal patches for Telegram X."
+        source = "https://github.com/Shahriar-0/Telegram-X-Morphe"
+        author = "Shahriar-0"
         contact = "na"
         website = "na"
         license = "GPLv3"
