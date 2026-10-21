@@ -1,7 +1,7 @@
 package app.template.patches.telegramx
 
+import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.patch.bytecodePatch
-import app.morphe.util.returnEarly
 
 @Suppress("unused")
 val removeSponsoredMessagesPatch = bytecodePatch(
@@ -12,6 +12,8 @@ val removeSponsoredMessagesPatch = bytecodePatch(
     compatibleWith(COMPATIBILITY_TELEGRAM_X)
 
     execute {
-        RequestSponsoredMessagesFingerprint.method.returnEarly()
+        // The fingerprint finds the method that creates the TDLib sponsored-message request.
+        // Return immediately, before the request can be sent.
+        RequestSponsoredMessagesFingerprint.method.addInstruction(0, "return-void")
     }
 }
