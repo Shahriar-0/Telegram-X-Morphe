@@ -6,7 +6,7 @@ import app.morphe.patcher.patch.bytecodePatch
 @Suppress("unused")
 val removeSponsoredMessagesPatch = bytecodePatch(
     name = "Remove Telegram X sponsored messages",
-    description = "Prevents Telegram X from requesting sponsored messages in chats.",
+    description = "Blocks Telegram X sponsored-message requests.",
     default = true
 ) {
     compatibleWith(COMPATIBILITY_TELEGRAM_X)
