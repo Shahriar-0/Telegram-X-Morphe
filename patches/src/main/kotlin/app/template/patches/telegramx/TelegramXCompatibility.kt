@@ -10,6 +10,6 @@ internal val COMPATIBILITY_TELEGRAM_X = Compatibility(
     apkFileType = ApkFileType.APK,
     appIconColor = 0x3F73A8,
     targets = listOf(
-        AppTarget(version = "0.29.1.1817")
+        AppTarget(version = "0.29.1.1817-universal")
     )
 )
