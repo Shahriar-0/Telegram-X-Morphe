@@ -131,3 +131,5 @@ local.properties
 
 tgx/
 *.jks
+# Kotlin build state
+.kotlin/
