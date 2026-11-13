@@ -36,3 +36,19 @@ tasks {
         dependsOn("generatePatchesList")
     }
 }
+
+val patchValidationClasspath = configurations.create("patchValidationClasspath")
+dependencies {
+    compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.10.2")
+    patchValidationClasspath("app.morphe:morphe-patcher:1.15.1")
+}
+
+// Supply -PmonetApk=/absolute/path/to/Telegram-X.apk.
+tasks.register<JavaExec>("validateMonet") {
+    dependsOn(tasks.jar)
+    classpath = sourceSets["main"].runtimeClasspath + patchValidationClasspath
+    mainClass.set("util.ValidateMonetPatchKt")
+    doFirst {
+        args(tasks.jar.get().archiveFile.get().asFile.absolutePath, providers.gradleProperty("monetApk").get())
+    }
+}
